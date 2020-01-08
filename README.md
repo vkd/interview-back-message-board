@@ -2,6 +2,11 @@
 
 The Backend of a message board application.
 
+## TODO
+
+[ ] admin users storage
+[ ] email validation
+
 ## API
 
 ### Structure
