@@ -17,6 +17,14 @@ type MessageStorager interface {
 // ImportMessages - import messages to the storage from csv file.
 func ImportMessages(source io.Reader, storage MessageStorager) error {
 	r := csv.NewReader(source)
+	r.ReuseRecord = true
+
+	// skip first line with titles
+	_, err := r.Read()
+	if err != nil {
+		return fmt.Errorf("error on read first line on csv file: %w", err)
+	}
+
 	for {
 		line, err := r.Read()
 		if err != nil {
