@@ -6,6 +6,7 @@ The Backend of a message board application.
 
 [ ] admin users storage
 [ ] email validation
+[ ] use database as storage (ex PostgreSQL)
 
 ## API
 
