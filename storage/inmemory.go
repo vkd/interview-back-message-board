@@ -30,7 +30,7 @@ func (s *SliceMessages) GetMessages(order string) ([]model.Message, error) {
 	res := []model.Message(*s)
 	// TODO: not optimal sort
 	sort.Slice(res, func(i, j int) bool {
-		return res[i].CreationTime.Before(res[j].CreationTime)
+		return res[i].CreationTime.After(res[j].CreationTime)
 	})
 	return res, nil
 }
