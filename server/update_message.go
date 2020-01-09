@@ -7,6 +7,7 @@ import (
 	"github.com/vkd/interview-back-message-board/model"
 )
 
+// MessageUpdater - UpdateMessage method.
 type MessageUpdater interface {
 	UpdateMessage(id string, m model.Message) (model.Message, error)
 }

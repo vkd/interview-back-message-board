@@ -7,6 +7,7 @@ import (
 	"github.com/vkd/interview-back-message-board/model"
 )
 
+// MessagePoster - PostNewMessage method.
 type MessagePoster interface {
 	PostNewMessage(m model.Message) (model.Message, error)
 }

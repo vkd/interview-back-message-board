@@ -7,6 +7,7 @@ import (
 	"github.com/vkd/interview-back-message-board/model"
 )
 
+// MessageGetter - GetMessage method.
 type MessageGetter interface {
 	GetMessage(id string) (model.Message, bool, error)
 }

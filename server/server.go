@@ -11,6 +11,7 @@ var users = map[string]string{
 	"admin": "back-challenge",
 }
 
+// ServerStorager - storage of the messages.
 type ServerStorager interface {
 	MessagePoster
 	MessageListGetter
@@ -18,6 +19,7 @@ type ServerStorager interface {
 	MessageUpdater
 }
 
+// New - return new server instance.
 func New(storage ServerStorager) *gin.Engine {
 	e := gin.New()
 
@@ -39,36 +41,36 @@ func New(storage ServerStorager) *gin.Engine {
 	return e
 }
 
-type Status string
+type status string
 
 const (
-	StatusOK       Status = "ok"
-	StatusError    Status = "error"
-	StatusNotFound Status = "not found"
+	statusOK       status = "ok"
+	statusError    status = "error"
+	statusNotFound status = "not found"
 )
 
 func okResponse(c *gin.Context, data interface{}) {
 	c.JSON(http.StatusOK, responseJSON{
-		Status: StatusOK,
+		Status: statusOK,
 		Data:   data,
 	})
 }
 
 type responseJSON struct {
-	Status Status      `json:"status"`
+	Status status      `json:"status"`
 	Data   interface{} `json:"data,omitempty"`
 	Error  string      `json:"error,omitempty"`
 }
 
 func errorResponse(c *gin.Context, err error) {
 	c.JSON(http.StatusInternalServerError, responseJSON{
-		Status: StatusError,
+		Status: statusError,
 		Error:  err.Error(),
 	})
 }
 
 func notFoundResponse(c *gin.Context) {
 	c.JSON(http.StatusNotFound, responseJSON{
-		Status: StatusNotFound,
+		Status: statusNotFound,
 	})
 }
