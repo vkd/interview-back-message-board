@@ -57,3 +57,9 @@ func (s *SliceMessages) UpdateMessage(id string, updateMessage model.Message) (m
 	}
 	return m, false, nil
 }
+
+// ImportMessage - import message.
+func (s *SliceMessages) ImportMessage(m model.Message) error {
+	*s = append(*s, m)
+	return nil
+}
