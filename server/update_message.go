@@ -9,7 +9,7 @@ import (
 
 // MessageUpdater - UpdateMessage method.
 type MessageUpdater interface {
-	UpdateMessage(id string, m model.Message) (model.Message, error)
+	UpdateMessage(id string, m model.Message) (model.Message, bool, error)
 }
 
 type updateMessageJSON struct {
@@ -28,13 +28,17 @@ func updateMessageHandler(storage MessageUpdater) gin.HandlerFunc {
 			errorResponse(c, fmt.Errorf("error on bind json: %w", err))
 			return
 		}
-		_, err = storage.UpdateMessage(id, model.Message{
+		_, ok, err := storage.UpdateMessage(id, model.Message{
 			Name:  j.Name,
 			Email: j.Email,
 			Text:  j.Text,
 		})
 		if err != nil {
 			errorResponse(c, fmt.Errorf("error on update message: %w", err))
+			return
+		}
+		if !ok {
+			notFoundResponse(c)
 			return
 		}
 
