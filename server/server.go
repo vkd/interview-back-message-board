@@ -11,8 +11,8 @@ var users = map[string]string{
 	"admin": "back-challenge",
 }
 
-// ServerStorager - storage of the messages.
-type ServerStorager interface {
+// Storager - storage of the messages.
+type Storager interface {
 	MessagePoster
 	MessageListGetter
 	MessageGetter
@@ -20,7 +20,7 @@ type ServerStorager interface {
 }
 
 // New - return new server instance.
-func New(storage ServerStorager) *gin.Engine {
+func New(storage Storager) *gin.Engine {
 	e := gin.New()
 
 	publicAPI := e.Group("")
@@ -35,7 +35,6 @@ func New(storage ServerStorager) *gin.Engine {
 			messageID.GET("", getMessageHandler(storage))
 			messageID.POST("", updateMessageHandler(storage))
 		}
-
 	}
 
 	return e
