@@ -55,7 +55,7 @@ A request should contain the header:
 `Authorization: Basic base64(username:password)`
 
 ### List of messages
-`GET /message?order=-created_at`
+`GET /message?order=-creation_time`
 
 Response:
 ```
