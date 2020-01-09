@@ -26,7 +26,8 @@ func (s *SliceMessages) GetMessage(id string) (model.Message, bool, error) {
 }
 
 // GetMessages - get list of messages.
-func (s *SliceMessages) GetMessages(order string) ([]model.Message, error) {
+func (s *SliceMessages) GetMessages(_ string) ([]model.Message, error) {
+	// TODO: use order param
 	res := []model.Message(*s)
 	// TODO: not optimal sort
 	sort.Slice(res, func(i, j int) bool {
