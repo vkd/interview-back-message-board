@@ -12,6 +12,7 @@ The Backend of a message board application.
 - [ ] implement graceful shutdown
 - [ ] use for API docs `swagger` or the style guide of the team
 - [ ] use `Release` mode for the service
+- [ ] allow to configure from ENV
 
 ## How to run
 
