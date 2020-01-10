@@ -50,8 +50,9 @@ func (s *SliceMessages) UpdateMessage(id string, updateMessage model.Message) (m
 	// TODO: not optimal search
 	for i, m := range *s {
 		if m.ID == id {
-			[]model.Message(*s)[i].Name = updateMessage.Name
-			[]model.Message(*s)[i].Email = updateMessage.Email
+			// requirements says "update the text of a specific message"
+			// []model.Message(*s)[i].Name = updateMessage.Name
+			// []model.Message(*s)[i].Email = updateMessage.Email
 			[]model.Message(*s)[i].Text = updateMessage.Text
 			return m, true, nil
 		}
