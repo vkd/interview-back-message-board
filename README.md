@@ -13,6 +13,11 @@ The Backend of a message board application.
 [ ] use for API docs `swagger` or the style guide of the team
 [ ] use `Release` mode for the service
 
+## How to run
+
+1. `make docker-build`
+1. `make docker-run`
+
 ## API
 
 ### Structure
