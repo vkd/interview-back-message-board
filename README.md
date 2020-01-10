@@ -5,8 +5,13 @@ The Backend of a message board application.
 ## TODO
 
 [ ] admin users storage
-[ ] email validation
+[ ] request validation
 [ ] use database as storage (ex PostgreSQL)
+[ ] use logrus for log messages
+[ ] add metrics
+[ ] implement graceful shutdown
+[ ] use for API docs `swagger` or the style guide of the team
+[ ] use `Release` mode for the service
 
 ## API
 
